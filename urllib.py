@@ -100,7 +100,7 @@ always_safe = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                'abcdefghijklmnopqrstuvwxyz'
                '0123456789' '_.-')
 
-def quote(s, safe = '/'):
+def quote(s):
     res = []
     replacements = {}
     for c in s:
@@ -110,10 +110,11 @@ def quote(s, safe = '/'):
         res.append('%%%x' % ord(c))
     return ''.join(res)
 
-def quote_plus(s, safe = ''):
+def quote_plus(s):
     if ' ' in s:
+        s = s.replace(' ', '+')
         s = quote(s, safe + ' ')
-        return s.replace(' ', '+')
+        return s
     return quote(s, safe)
 
 def unquote(s):
