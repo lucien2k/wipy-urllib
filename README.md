@@ -10,6 +10,9 @@ Usage is similar to normal urllib:
 > f.headers  
 > f.read()
 
+It is possible to do posts:
+> f = urllib.urlopen('http://www.someurl.com', {'input': 'value'})
+
 There are also methods for urlencoding:
 > urllib.urlencode('abc 123')  
 > urllib.quote('abc 123')  
