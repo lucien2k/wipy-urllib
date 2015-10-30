@@ -17,4 +17,4 @@ urllib.quote_plus('abc 123')
 urllib.unquote('abc%20123')
 urllib.unquote_plus('abc+123')
 
-
+Discussion available at http://forum.micropython.org/viewtopic.php?f=11&t=1080
