@@ -51,6 +51,7 @@ class URLOpener:
             else:
                 request += 'Content-Length: %s\r\n\r\n%s\r\n' % (len(data), data)
         request += '\r\n'
+        print request
         s.send(request)
         while 1:
             recv = s.recv(1024)
@@ -89,13 +90,15 @@ def urlparse(url):
     if scheme == 'https':
         port = 443
     if host != url:
-        path = ''.join(url.split('/')[1:])
+        path = '/'+''.join(url.split('/')[1:])
         if path.count('?'):
             if path.count('?') > 1:
                 raise Exception('URL malformed, too many ?')
             [path, data] = path.split('?')
     if host.count(':'):
         [host, port] = host.split(':')
+    if path[0] != '/':
+        path = '/'+path
     return [scheme, host, port, path, data]
 
 def get(url, params={}, **kwargs):
