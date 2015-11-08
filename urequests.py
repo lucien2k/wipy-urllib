@@ -51,7 +51,6 @@ class URLOpener:
             else:
                 request += 'Content-Length: %s\r\n\r\n%s\r\n' % (len(data), data)
         request += '\r\n'
-        print request
         s.send(request)
         while 1:
             recv = s.recv(1024)
