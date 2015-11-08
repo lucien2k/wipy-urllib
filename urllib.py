@@ -19,7 +19,7 @@ class URLOpener:
         self.url = url
         [scheme, host, path, data] = urlparse(self.url)
         if scheme == 'http':
-            addr = socket.getaddrinfo(host, 80)[0][-1]
+            addr = socket.getaddrinfo(host, 6500)[0][-1]
             s = socket.socket()
             s.settimeout(5)
             s.connect(addr)
@@ -33,7 +33,7 @@ class URLOpener:
             #print('POST %s HTTP/1.0\r\nHost: %s\r\n\r\n%s\r\n' % (path or '/', host, data.strip()))
             s.send(b'POST %s HTTP/1.0\r\nHost: %s\r\n\r\n%s\r\n' % (path or '/', host, data.strip()))
         else:
-            #print('GET %s%s HTTP/1.0\r\nHost: %s\r\n\r\n' % (path or '/', '?'+data.strip(), host))
+            print('GET %s%s HTTP/1.0\r\nHost: %s\r\n\r\n' % (path or '/', '?'+data.strip(), host))
             s.send(b'GET %s%s HTTP/1.0\r\nHost: %s\r\n\r\n' % (path or '/', '?'+data.strip(), host))
         while 1:
             recv = s.recv(1024)
