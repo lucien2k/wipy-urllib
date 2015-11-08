@@ -2,7 +2,7 @@
 
 Adapted for Micropython by Alex Cowan <acowan@gmail.com>
 
-Includes some elements from the original urllib and urlencode libraries for Python
+Works in a similar way to python-requests http://docs.python-requests.org/en/latest/
 """
 
 import socket
