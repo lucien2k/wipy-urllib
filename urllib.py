@@ -113,8 +113,6 @@ def quote(s):
 def quote_plus(s):
     if ' ' in s:
         s = s.replace(' ', '+')
-        s = quote(s, safe + ' ')
-        return s
     return quote(s, safe)
 
 def unquote(s):
