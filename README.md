@@ -21,3 +21,16 @@ There are also methods for urlencoding:
 > urllib.unquote_plus('abc+123')
 
 Discussion available at http://forum.micropython.org/viewtopic.php?f=11&t=1080
+
+# urequests
+
+First version of urequests for micropython
+
+Supports:
+ - SSL
+ - Cookies
+ - Basic Auth
+ - Custom HTTP Headers
+ - GET, POST, PUT, DELETE, OPTIONS, HEAD
+
+Similar interface to http://docs.python-requests.org/en/latest/
