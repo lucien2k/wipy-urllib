@@ -19,7 +19,7 @@ class URLOpener:
         self.url = url
         [scheme, host, path, data] = urlparse(self.url)
         if scheme == 'http':
-            addr = socket.getaddrinfo(host, 6500)[0][-1]
+            addr = socket.getaddrinfo(host, 80)[0][-1]
             s = socket.socket()
             s.settimeout(5)
             s.connect(addr)
