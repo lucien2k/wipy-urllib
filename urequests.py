@@ -89,7 +89,7 @@ def urlparse(url):
     if scheme == 'https':
         port = 443
     if host != url:
-        path = '/'+''.join(url.split('/')[1:])
+        path = '/'+'/'.join(url.split('/')[1:])
         if path.count('?'):
             if path.count('?') > 1:
                 raise Exception('URL malformed, too many ?')
