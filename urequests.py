@@ -49,7 +49,10 @@ class URLOpener:
                     request += 'Content-Type: application/x-www-form-urlencoded\r\n'
                 request += 'Content-Length: %s\r\n\r\n%s\r\n' % (len(enc_data), enc_data)
             else:
-                request += 'Content-Length: %s\r\n\r\n%s\r\n' % (len(data), data)
+                request += 'Content-Length: %s\r\n\r\n' % len(data)
+                s.send(request)
+                s.send(data)
+                request = b'\r\n'
         request += '\r\n'
         s.send(request)
         while 1:
